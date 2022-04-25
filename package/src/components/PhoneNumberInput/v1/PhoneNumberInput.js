@@ -286,7 +286,7 @@ class PhoneNumberInput extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { value } = this.state;
     this.handleChanging(value);
     this.handleChanged(value);

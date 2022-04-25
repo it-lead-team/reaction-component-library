@@ -462,7 +462,7 @@ class Select extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.handleChanged(this.state.value);
   }
 

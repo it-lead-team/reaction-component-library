@@ -5,8 +5,8 @@ const path = require("path");
 const fse = require("fs-extra");
 const replaceInFiles = require("replace-in-files");
 
-const DIST_FOLDER = path.join(process.cwd(), "dist");
-const DIST_MODULES_FOLDER = path.join(process.cwd(), "dist-modules-temp");
+const DIST_FOLDER = path.join(process.cwd(), "../../dev-plugins/components");
+const DIST_MODULES_FOLDER = path.join(process.cwd(), "../../dev-plugins/components-modules-temp");
 const COMPONENTS_FOLDER = path.join(DIST_FOLDER, "components");
 
 /**
@@ -38,7 +38,7 @@ async function recursivelyChangeExtension(fullDirPath, ext, newExt) {
  * @returns {Promise<undefined>} Nothing
  */
 async function copyFile(file) {
-  const buildPath = path.resolve(process.cwd(), "dist", path.basename(file));
+  const buildPath = path.resolve(process.cwd(), "../../dev-plugins/components", path.basename(file));
   await fse.copy(file, buildPath);
   console.log(`Copied ${file} to ${buildPath}`);
 }
@@ -55,7 +55,7 @@ async function createPackageFile() {
     main: "index",
     module: "index.mjs"
   };
-  const buildPath = path.resolve(__dirname, "../dist/package.json");
+  const buildPath = path.resolve(__dirname, "../../../dev-plugins/components/package.json");
   const stringPackageJson = JSON.stringify(newPackageData, null, 2);
 
   await fse.writeFile(buildPath, `${stringPackageJson}\n`, "utf8");

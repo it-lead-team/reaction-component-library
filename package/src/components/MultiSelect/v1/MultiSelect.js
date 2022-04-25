@@ -499,7 +499,7 @@ class MultiSelect extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.handleChanged(this.state.value);
   }
 

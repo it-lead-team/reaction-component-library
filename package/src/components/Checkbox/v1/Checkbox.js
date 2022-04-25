@@ -127,7 +127,7 @@ class Checkbox extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.handleChange(this.props.value || false);
   }
 

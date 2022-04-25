@@ -117,11 +117,12 @@ class FulfillmentOptionsCheckoutAction extends Component {
 
   handleSubmit = async ({ selectedFulfillmentOptionId }) => {
     const { fulfillmentGroup: { availableFulfillmentOptions } } = this.props;
+    const fulfillmentGroupIndex = this.props.fulfillmentGroupIndex;
     // We get the ID, but we want to pass the whole fulfillment option to onSubmit
     const selectedFulfillmentOption = availableFulfillmentOptions.find((option) => option.fulfillmentMethod._id === selectedFulfillmentOptionId);
 
     const { onSubmit } = this.props;
-    await onSubmit({ selectedFulfillmentOption });
+    await onSubmit({ selectedFulfillmentOption , fulfillmentGroupIndex});
   };
 
   handleChange = (selectedValue) => {

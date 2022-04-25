@@ -217,7 +217,7 @@ class SelectableList extends Component {
   }
 
   // eslint-disable-next-line camelcase
-  UNSAFE_componentWillMount() {
+  UNSAFE_componentDidMount() {
     this.handleChange(this.props.value || "");
   }
 
